@@ -7,11 +7,16 @@ const Navber = () => {
     const { user, logout } = useContext(AuthContext);
     // console.log(user.photoURl);
     const navlinks = <>
-        <Link>Home</Link>
-        <Link>All Jobs</Link>
-        <Link>Blog</Link>
-        <Link>About Us</Link>
-        <Link>Contact Us</Link>
+        <Link to={'/'}>Home</Link>
+        <Link to={'/all-jobs'}>All Jobs</Link>
+        <Link to={'/blog'}>Blog</Link>
+        <Link to={'/about'}>About Us</Link>
+        <Link to={'/contact'}>Contact Us</Link>
+    </>
+    const userLinks = <>
+        <li>
+            <Link to={'/add-job'}>Add Job</Link>
+        </li>
     </>
 
     const handleLogout = () =>{
@@ -35,7 +40,7 @@ const Navber = () => {
                         {navlinks}
                     </div>
                 </div>
-                <Link> <img width={200} src={logo} alt="" /> </Link>
+                <Link to={'/'}> <img width={200} src={logo} alt="" /> </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <div className="menu menu-horizontal flex gap-5">
@@ -52,12 +57,9 @@ const Navber = () => {
                     </div>
                 </div>
                 <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-                    <li>
-                        <a className="justify-between">
-                            Profile                            
-                        </a>
-                    </li>
-                    <li><a>Settings</a></li>
+                    {
+                        userLinks
+                    }
                     <li><button onClick={handleLogout}>Logout</button></li>
                 </ul>
             </div> : 
