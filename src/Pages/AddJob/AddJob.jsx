@@ -7,7 +7,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 const AddJob = () => {
     const {user}  = useContext(AuthContext);
     const [startDate, setStartDate] = useState(new Date());
-    console.log(user);
+    
     const handleAddJob = e => {
         e.preventDefault();
         const form = e.target;
