@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const TableBody = ({job, handleDelete}) => {
     const {_id, jobTitle, minSalary, maxSalary, deadline} = job;
@@ -18,9 +19,11 @@ const TableBody = ({job, handleDelete}) => {
             <td className="p-4">
                 <p>{new Date(deadline).toLocaleDateString()}</p>
             </td>
-            <td className="p-4">
+            <td className="p-4 flex gap-2">
                 <button onClick={() => handleDelete(_id)}>Delete</button>
-                <button>View Details</button>
+                <Link to={`/update-job/${_id}`}><button>Update</button></Link>
+                
+                <Link to={`/job-details/${_id}`}><button>View Details</button></Link>
             </td>
         </tr>
 
