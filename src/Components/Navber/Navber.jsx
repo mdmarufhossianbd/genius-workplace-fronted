@@ -9,13 +9,14 @@ const Navber = () => {
     const navlinks = <>
         <Link to={'/'}>Home</Link>
         <Link to={'/all-jobs'}>All Jobs</Link>
+        <Link to={'/add-job'}>Add Jobs</Link>
         <Link to={'/blog'}>Blog</Link>
         <Link to={'/about'}>About Us</Link>
         <Link to={'/contact'}>Contact Us</Link>
     </>
     const userLinks = <>
-        <li>
-            <Link to={'/add-job'}>Add Job</Link>
+        <li>            
+            <Link to={'/my-jobs'}>My Jobs</Link>
         </li>
     </>
 
