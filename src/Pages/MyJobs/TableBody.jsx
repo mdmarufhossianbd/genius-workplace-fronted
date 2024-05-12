@@ -6,7 +6,6 @@ const TableBody = ({job, handleDelete}) => {
     const {_id, jobTitle, minSalary, maxSalary, deadline, publishDate} = job;
 
     return (
-
         <tr className="border-b border-blue-gray-50 py-4">
             <td className="p-4">
                 <h2>{jobTitle}</h2>
