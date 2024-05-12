@@ -105,7 +105,7 @@ const MyJobs = () => {
                             <th
                                 className="border-y border-blue-gray-100 bg-blue-gray-50/50 p-4"
                             >
-                                View
+                                Action
                             </th>
                         </tr>
                     </thead>

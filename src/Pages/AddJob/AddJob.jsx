@@ -70,7 +70,7 @@ const AddJob = () => {
                         <select className="p-2 rounded bg-[#1B3044] text-white" name="job_category">
                             <option value="On Site">On Site</option>
                             <option value="Remote">Remote</option>
-                            <option value="Part-Time">Part-Time</option>
+                            <option value="Part Time">Part-Time</option>
                             <option value="Hybrid">Hybrid</option>
                         </select>
                     </div>

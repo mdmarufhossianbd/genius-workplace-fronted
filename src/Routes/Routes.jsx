@@ -4,6 +4,7 @@ import {
 import Root from "../Layout/Root";
 import AddJob from "../Pages/AddJob/AddJob";
 import AllJobs from "../Pages/AllJobs/AllJobs";
+import Blog from "../Pages/Blog/Blog";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Home from "../Pages/Home/Home";
 import JobDetails from "../Pages/JobDetails/JobDetails";
@@ -22,7 +23,8 @@ const router = createBrowserRouter([
     children: [
         {
             path: '/',
-            element: <Home></Home>
+            element: <Home></Home>,
+            loader: () => fetch(`${import.meta.env.VITE_API_URL}/all-jobs`)
         },
         {
           path: '/login',
@@ -57,6 +59,10 @@ const router = createBrowserRouter([
         {
           path: '/profile',
           element: <PrivateRoutes><UserProfile></UserProfile></PrivateRoutes>
+        },
+        {
+          path: '/blog',
+          element: <Blog></Blog>
         }
 
     ]

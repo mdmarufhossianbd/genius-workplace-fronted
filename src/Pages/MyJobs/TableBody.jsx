@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types';
+import "react-datepicker/dist/react-datepicker.css";
 import { Link } from 'react-router-dom';
 
 const TableBody = ({job, handleDelete}) => {
     const {_id, jobTitle, minSalary, maxSalary, deadline} = job;
+
     return (
 
         <tr className="border-b border-blue-gray-50 py-4">
@@ -10,8 +12,8 @@ const TableBody = ({job, handleDelete}) => {
                 <h2>{jobTitle}</h2>
             </td>
             <td className="flex gap-3 p-4">
-                <h1>Min Salary : $ {minSalary}</h1>
-                <h1>Max Salary : $ {maxSalary}</h1>
+                <p>Min : $ {minSalary}</p>
+                <p>Max : $ {maxSalary}</p>
             </td>
             <td className="p-4">
                 <p>10/10/2024</p>

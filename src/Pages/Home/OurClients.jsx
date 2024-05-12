@@ -20,7 +20,7 @@ import client9 from "../../assets/images/clients/1 (9).png";
 const OurClients = () => {
     return (
         <div>
-            <h2 className="text-center font-semibold text-2xl">Our Clients</h2>
+            <h2 className="text-center font-semibold text-5xl">Our Clients</h2>
             <Marquee>
                 <img className="w-[200px]" src={client1} alt="" />
                 <img className="w-[200px]" src={client2} alt="" />
