@@ -17,6 +17,7 @@ const Navber = () => {
     const userLinks = <>
         <li>            
             <Link to={'/my-jobs'}>My Jobs</Link>
+            <Link to={'/my-applied-jobs'}>My Applied Jobs</Link>
             <Link to={'/profile'}>Profile</Link>
         </li>
     </>

@@ -20,8 +20,9 @@ const AddJob = () => {
         const maxSalary = form.max_salary.value;
         const deadline = startDate;
         const jobDescription = form.job_description.value;
+        const publishDate = new Date();
         const jobData = {
-            jobBanner, jobTitle, jobCategory, minSalary, maxSalary, deadline, jobDescription, emplyoer: {
+            jobBanner, jobTitle, jobCategory, minSalary, maxSalary, deadline, jobDescription, publishDate, emplyoer: {
                 email: email,
                 name: emplyoerName
             },

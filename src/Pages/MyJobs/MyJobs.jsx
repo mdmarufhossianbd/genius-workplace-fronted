@@ -95,7 +95,7 @@ const MyJobs = () => {
                             <th
                                 className="border-y border-blue-gray-100 bg-blue-gray-50/50 p-4"
                             >
-                                Job Posting Date
+                                Job Publish Date
                             </th>
                             <th
                                 className="border-y border-blue-gray-100 bg-blue-gray-50/50 p-4"

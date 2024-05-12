@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 import { Toaster } from "react-hot-toast";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Provider/AuthProvider";
 
@@ -10,6 +10,7 @@ const UpdateJob = () => {
     const {user} = useContext(AuthContext);    
     const {_id, jobBanner, jobTitle, jobCategory, minSalary, maxSalary, deadline, jobDescription} = job;
     const [startDate, setStartDate] = useState(deadline);
+    const navigate = useNavigate()
     
 
     const handleUpdateJob = e => {
@@ -59,6 +60,7 @@ const UpdateJob = () => {
                       `
                     }
                   });
+                  navigate('/my-jobs')
             }
         })
     }

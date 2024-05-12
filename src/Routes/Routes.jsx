@@ -4,6 +4,7 @@ import {
 import Root from "../Layout/Root";
 import AddJob from "../Pages/AddJob/AddJob";
 import AllJobs from "../Pages/AllJobs/AllJobs";
+import AppliedJob from "../Pages/AppliedJob/AppliedJob";
 import Blog from "../Pages/Blog/Blog";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Home from "../Pages/Home/Home";
@@ -63,8 +64,11 @@ const router = createBrowserRouter([
         {
           path: '/blog',
           element: <Blog></Blog>
+        },
+        {
+          path: '/my-applied-jobs/',
+          element: <PrivateRoutes><AppliedJob></AppliedJob></PrivateRoutes>
         }
-
     ]
   },
 ]);

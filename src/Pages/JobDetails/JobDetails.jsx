@@ -1,15 +1,15 @@
 import { useContext } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import toast from "react-hot-toast";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const JobDetails = () => {
     const { user } = useContext(AuthContext)
     const job = useLoaderData()
-    // console.log(user);
-
-    const { jobBanner, jobTitle, jobCategory, minSalary, maxSalary, deadline, jobDescription, applied_count } = job;
+    const navigate = useNavigate()
+    console.log(job);
+    const { _id, jobBanner, jobTitle, jobCategory, minSalary, maxSalary, deadline, jobDescription, applied_count, emplyoer, publishDate } = job;
 
     const handleApply = e => {
         e.preventDefault();
@@ -17,17 +17,22 @@ const JobDetails = () => {
         const applicantEmail = form.applicant_email.value;
         const applicantName = form.applicant_name.value;
         const applicantResume = form.applicant_resume.value;
+        const jobId = _id       
         const applyData = {
-            applicantEmail, applicantName, applicantResume
+            jobId, applicantEmail, applicantName, applicantResume, jobTitle, jobCategory, minSalary, maxSalary, deadline, publishDate
         }
-        const today = new Date().toDateString()
-        const expriedDate = new Date(deadline).toDateString()
-        console.log(today);
+        const today = new Date();
+        const expriedDate = new Date(deadline);        
 
         if (today > expriedDate) {
             toast.error("This job apply date is expried.")
             return
         }
+        if (emplyoer?.email == applicantEmail) {
+            toast.error("You can not apply this job because you owner of this job.")
+            return
+        }
+
 
         fetch(`${import.meta.env.VITE_API_URL}/applies`, {
             method: "POST",
@@ -40,6 +45,7 @@ const JobDetails = () => {
             .then(data => {
                 if (data.acknowledged == true) {
                     toast.success("your applicaiton successfully added.")
+                    navigate('/my-applied-jobs')
                 }
             })
     }
@@ -81,10 +87,10 @@ const JobDetails = () => {
                                 <h3 className="font-bold text-lg">Application From!</h3>
                                 <p className="py-4">For apply in this job sumbit your resume link</p>
                                 <form onSubmit={handleApply} className="flex flex-col gap-3">
-                                    <input className="bg-blue-gray-300 p-2" type="text" name="applicant_name" disabled defaultValue={user?.displayName} />
-                                    <input className="bg-blue-gray-300 p-2" type="email" name="applicant_email" disabled defaultValue={user?.email} />
-                                    <input className="bg-blue-gray-300 p-2" type="text" name="applicant_resume" placeholder="enter your resume link" />
-                                    <input className="btn" type="submit" value="Apply" />
+                                    <input className="bg-[#1B3044] text-white p-2 rounded" type="text" name="applicant_name" disabled defaultValue={user?.displayName} />
+                                    <input className="bg-[#1B3044] text-white p-2 rounded" type="email" name="applicant_email" disabled defaultValue={user?.email} />
+                                    <input className="bg-[#1B3044] text-white p-2 rounded" type="text" name="applicant_resume" required placeholder="enter your resume link" />
+                                    <input className="text-xl font-semibold px-4 py-2 rounded bg-[#05A659] text-white" type="submit" value="Apply" />
                                 </form>
                             </div>
                         </dialog>
