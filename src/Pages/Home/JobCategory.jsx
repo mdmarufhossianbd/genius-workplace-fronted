@@ -20,43 +20,45 @@ const JobCategory = ({ jobs }) => {
                         </div>
                     </TabList>
                     <TabPanel>
+                        
                         <div className='grid md:grid-cols-3 gap-5'>
                             {
                                 jobs.map(job => <JobCard key={job._id} job={job} ></JobCard>)
                             }
                         </div>
-                    </TabPanel>
-                    <TabPanel>
+                    
+                </TabPanel>
+                <TabPanel>                    
                         <div className='grid md:grid-cols-3 gap-5'>
                             {
                                 jobs.filter(j => j.jobCategory === "On Site").map(job => <JobCard key={job._id} job={job} ></JobCard>)
                             }
-                        </div>
-                    </TabPanel>
-                    <TabPanel>
-                        <div className='grid md:grid-cols-3 gap-5'>
-                            {
-                                jobs.filter(j => j.jobCategory === "Part Time").map(job => <JobCard key={job._id} job={job} ></JobCard>)
-                            }
-                        </div>
-                    </TabPanel>
-                    <TabPanel>
-                        <div className='grid md:grid-cols-3 gap-5'>
-                            {
-                                jobs.filter(j => j.jobCategory === "Remote").map(job => <JobCard key={job._id} job={job} ></JobCard>)
-                            }
-                        </div>
-                    </TabPanel>
-                    <TabPanel>
-                        <div className='grid md:grid-cols-3 gap-5'>
-                            {
-                                jobs.filter(j => j.jobCategory === "Hybrid").map(job => <JobCard key={job._id} job={job} ></JobCard>)
-                            }
-                        </div>
-                    </TabPanel>
-                </Tabs>
-            </div>
+                        </div>                    
+                </TabPanel>
+                <TabPanel>
+                    <div className='grid md:grid-cols-3 gap-5'>
+                        {
+                            jobs.filter(j => j.jobCategory === "Part Time").map(job => <JobCard key={job._id} job={job} ></JobCard>)
+                        }
+                    </div>
+                </TabPanel>
+                <TabPanel>
+                    <div className='grid md:grid-cols-3 gap-5'>
+                        {
+                            jobs.filter(j => j.jobCategory === "Remote").map(job => <JobCard key={job._id} job={job} ></JobCard>)
+                        }
+                    </div>
+                </TabPanel>
+                <TabPanel>
+                    <div className='grid md:grid-cols-3 gap-5'>
+                        {
+                            jobs.filter(j => j.jobCategory === "Hybrid").map(job => <JobCard key={job._id} job={job} ></JobCard>)
+                        }
+                    </div>
+                </TabPanel>
+            </Tabs>
         </div>
+        </div >
     );
 };
 

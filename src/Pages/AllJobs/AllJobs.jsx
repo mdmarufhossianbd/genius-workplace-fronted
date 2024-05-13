@@ -1,4 +1,3 @@
-import { Typography } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 
@@ -23,18 +22,18 @@ const AllJobs = () => {
     console.log(searchJob);
 
     return (
-        <div className="h-full max-w-7xl lg:mx-auto mx-4">
+        <div className="h-full max-w-7xl lg:mx-auto mx-4 md:my-20 my-10">
             <div>
-                <div className="mb-8 flex items-center justify-between gap-8">
+                <div className="mb-8 md:flex items-center justify-between gap-8">
                     <div>
-                        <Typography variant="h5" color="blue-gray">
+                        <h2 className="md:text-3xl text-2xl font-semibold">
                             All Jobs List
-                        </Typography>
-                        <Typography color="gray" className="mt-1 font-normal">
+                        </h2>
+                        <p color="gray" className="mt-1 font-normal">
                             Search your jobs in this list and build your career.
-                        </Typography>
+                        </p>
                     </div>
-                    <div className="flex shrink-0 flex-col gap-2 sm:flex-row">
+                    <div className="flex shrink-0 flex-col gap-2 sm:flex-row my-5 md:my-0">
                         <div className="w-full md:w-80 flex gap-4">
                             <form onSubmit={handleSearch}>
                                 <input className="border p-2 rounded" type="text" name="search" placeholder="search here" id="" />
