@@ -64,15 +64,7 @@ const MyJobs = () => {
                         <Typography color="gray" className="mt-1 font-normal">
                             Search your jobs in this list and build your career.
                         </Typography>
-                    </div>
-                    {/* <div className="flex shrink-0 flex-col gap-2 sm:flex-row">
-                        <div className="w-full md:w-72 flex gap-4">
-                            <Input
-                                label="Search"
-                            />
-                            <Button>Find</Button>
-                        </div>
-                    </div> */}
+                    </div>                    
                 </div>                
             </CardHeader>
             {

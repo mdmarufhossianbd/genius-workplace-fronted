@@ -6,6 +6,9 @@ import AddJob from "../Pages/AddJob/AddJob";
 import AllJobs from "../Pages/AllJobs/AllJobs";
 import AppliedJob from "../Pages/AppliedJob/AppliedJob";
 import Blog from "../Pages/Blog/Blog";
+import ExpressWithNextJS from "../Pages/Blog/ExpressWithNextJS";
+import JWTAccessToken from "../Pages/Blog/JWTAccessToken";
+import NodeJs from "../Pages/Blog/NodeJs";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Home from "../Pages/Home/Home";
 import JobDetails from "../Pages/JobDetails/JobDetails";
@@ -69,6 +72,18 @@ const router = createBrowserRouter([
         {
           path: '/my-applied-jobs/',
           element: <PrivateRoutes><AppliedJob></AppliedJob></PrivateRoutes>,          
+        },
+        {
+          path: '/blog/jwt-access-token',
+          element: <JWTAccessToken></JWTAccessToken>
+        },
+        {
+          path: '/blog/next-with-express-js',
+          element: <ExpressWithNextJS></ExpressWithNextJS>
+        },
+        {
+          path: '/blog/what-is-node-js',
+          element: <NodeJs></NodeJs>
         }
     ]
   },
