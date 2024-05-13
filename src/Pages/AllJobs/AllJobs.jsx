@@ -1,18 +1,26 @@
-import { Button, Card, CardBody, CardFooter, CardHeader, Input, Typography } from "@material-tailwind/react";
+import { Button, Card, CardBody, CardFooter, CardHeader, Typography } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const AllJobs = () => {
-    const [jobs, setJobs] = useState();
+    const alljobs = useLoaderData()
+    const [jobs, setJobs] = useState(alljobs);
+    const [searchJob, setSearchJob] = useState('')
 
     useEffect(()=>{
-        fetch('http://localhost:5000/all-jobs')
+        fetch(`${import.meta.env.VITE_API_URL}/job-search?search=${searchJob}`)
         .then(res=>res.json())
         .then(data=>{
-            // console.log(data);
             setJobs(data)
         })
-    },[])
+    },[searchJob])
+
+    const handleSearch = e => {
+        e.preventDefault();
+        const search = e.target.search.value;        
+        setSearchJob(search)
+    }
+    console.log(searchJob);
 
     return (
         <Card className="h-full max-w-7xl mx-auto">
@@ -27,11 +35,11 @@ const AllJobs = () => {
                         </Typography>
                     </div>
                     <div className="flex shrink-0 flex-col gap-2 sm:flex-row">
-                        <div className="w-full md:w-72 flex gap-4">
-                            <Input
-                                label="Search"
-                            />
-                            <Button>Find</Button>
+                        <div className="w-full md:w-80 flex gap-4">
+                            <form onSubmit={handleSearch}>
+                                <input className="border p-2 rounded" type="text" name="search" placeholder="search here" id="" />
+                                <input className="px-4 py-2 bg-[#05A659] text-white font-semibold rounded" type="submit" value="Search" />
+                            </form>
                         </div>
                     </div>
                 </div>                
