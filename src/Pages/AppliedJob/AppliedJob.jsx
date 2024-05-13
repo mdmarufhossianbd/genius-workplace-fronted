@@ -41,7 +41,7 @@ const AppliedJob = () => {
 
     return (
         <div className="my-10">
-            <div className="h-full max-w-7xl mx-auto">
+            <div className="h-full max-w-7xl lg:mx-auto mx-4">
                 <div>
                     <div className="mb-5 flex items-center justify-between gap-8">
                         <div>
@@ -66,9 +66,9 @@ const AppliedJob = () => {
                 </div>
                 {
                     myAppliedJobs?.length == 0 ?
-                        <div className="flex justify-center gap-2">
+                        <div className=" flex justify-center gap-2">
                             <p>You do not applied any job. </p> <Link className="underline font-semibold" to={'/all-jobs'}>Browse job for apply</Link> </div> :
-                        <div className="px-0 border-x">
+                        <div className="overflow-scroll border-x">
                             <table className="mt-4 w-full min-w-max table-auto text-left">
                                 <thead>
                                     <tr>

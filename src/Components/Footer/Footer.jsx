@@ -9,7 +9,7 @@ const Footer = () => {
                     <Link to={'/'}><h2 className="text-3xl font-semibold pb-5">Genius WorkPlace</h2></Link>
                     <p className="text-justify">Genius WorkPlace, where innovation thrives and creativity knows no bounds, is your destination for career opportunities that challenge and inspire. Join us in shaping the future of technology and making meaningful contributions to the digital landscape.</p>
                 </nav>
-                <nav className="flex flex-col ml-5">
+                <nav className="flex flex-col md:ml-5">
                     <h6 className="footer-title">Important Links</h6>
                     <a className="link link-hover">About us</a>
                     <a className="link link-hover">Contact</a>

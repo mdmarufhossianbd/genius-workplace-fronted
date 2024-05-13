@@ -1,4 +1,4 @@
-import { Button, Card, CardBody, CardFooter, CardHeader, Typography } from "@material-tailwind/react";
+import { Typography } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 
@@ -23,8 +23,8 @@ const AllJobs = () => {
     console.log(searchJob);
 
     return (
-        <Card className="h-full max-w-7xl mx-auto">
-            <CardHeader floated={false} shadow={false} className="rounded-none">
+        <div className="h-full max-w-7xl lg:mx-auto mx-4">
+            <div>
                 <div className="mb-8 flex items-center justify-between gap-8">
                     <div>
                         <Typography variant="h5" color="blue-gray">
@@ -43,8 +43,8 @@ const AllJobs = () => {
                         </div>
                     </div>
                 </div>                
-            </CardHeader>
-            <CardBody className="overflow-scroll px-0">
+            </div>
+            <div className="overflow-scroll border-x">
                 <table className="mt-4 w-full min-w-max table-auto text-left">
                     <thead>
                         <tr>
@@ -99,18 +99,9 @@ const AllJobs = () => {
 
                     </tbody>
                 </table>
-            </CardBody>
-            <CardFooter className="flex items-center justify-between border-t border-blue-gray-50 p-4">
-                <div className="flex justify-between w-full">
-                    <Button variant="outlined" size="sm">
-                        Previous
-                    </Button>
-                    <Button variant="outlined" size="sm">
-                        Next
-                    </Button>
-                </div>
-            </CardFooter>
-        </Card>
+            </div>
+            
+        </div>
     );
 }
 

@@ -4,7 +4,7 @@ const JobCard = ({ job }) => {
     const { _id, jobBanner, jobTitle,  deadline} = job;
 
     return (
-        <div className='p-4 border rounded-md bg-[#7c2ae87a]'>
+        <div className='p-4 border rounded-md bg-[#05a6584b]'>
             <img className='rounded' src={jobBanner} />
             <h2 className='mt-2 font-semibold'>{jobTitle}</h2>
             <div className='flex justify-between py-2 items-center'>

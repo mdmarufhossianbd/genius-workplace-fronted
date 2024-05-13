@@ -1,4 +1,4 @@
-import { Button, Card, CardBody, CardHeader, Input, Typography } from "@material-tailwind/react";
+import { Card, CardBody, CardHeader, Typography } from "@material-tailwind/react";
 import { useContext, useEffect, useState } from "react";
 import Swal from 'sweetalert2';
 
@@ -65,14 +65,14 @@ const MyJobs = () => {
                             Search your jobs in this list and build your career.
                         </Typography>
                     </div>
-                    <div className="flex shrink-0 flex-col gap-2 sm:flex-row">
+                    {/* <div className="flex shrink-0 flex-col gap-2 sm:flex-row">
                         <div className="w-full md:w-72 flex gap-4">
                             <Input
                                 label="Search"
                             />
                             <Button>Find</Button>
                         </div>
-                    </div>
+                    </div> */}
                 </div>                
             </CardHeader>
             {
