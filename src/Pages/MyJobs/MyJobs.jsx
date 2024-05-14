@@ -32,7 +32,7 @@ const MyJobs = () => {
             confirmButtonText: "Yes, delete it!"
           }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/all-jobs/${_id}`, {
+                fetch(`${import.meta.env.VITE_API_URL}/all-jobs/${_id}`, {
                     method: "DELETE"
                 })
                 .then(res=>res.json())
@@ -54,7 +54,7 @@ const MyJobs = () => {
 
     return (
         <div>           
-           <Card className="h-full max-w-7xl mx-auto">
+           <Card className="h-full max-w-7xl mx-auto my-20">
             <CardHeader floated={false} shadow={false} className="rounded-none">
                 <div className="mb-8 flex items-center justify-between gap-8">
                     <div>

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
-        <div className="bg-base-200">
+        <div className="bg-base-200 relative">
             <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 md:gap-5 gap-10 py-10 text-base-content max-w-7xl mx-auto px-10">
                 <nav className="flex flex-col">
                     <Link to={'/'}><h2 className="text-3xl font-semibold pb-5">Genius WorkPlace</h2></Link>
