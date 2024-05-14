@@ -10,9 +10,9 @@ const MyJobs = () => {
     const { user } = useContext(AuthContext)
     const [jobs, setJobs] = useState([])
 
-    const url = `http://localhost:5000/all-jobs/${user?.email}`
+    const url = `${import.meta.env.VITE_API_URL}/all-jobs/${user?.email}`
     useEffect(() => {
-        fetch(url)
+        fetch(url, {credentials: "include"})
             .then(res => res.json())
             .then(data => {
                 // console.log(data);

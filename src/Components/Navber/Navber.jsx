@@ -44,7 +44,7 @@ const Navber = () => {
             <Link to={'/my-jobs'}>My Jobs</Link>
             <Link to={'/my-applied-jobs'}>My Applied Jobs</Link>
             <Link to={'/profile'}>Profile</Link>
-            <Link><button onClick={handleLogout}>Logout</button></Link>
+            
         </li>
     </>
 
@@ -80,7 +80,7 @@ const Navber = () => {
                                     {
                                         userLinks
                                     }
-                                    
+                                    <li><button onClick={handleLogout}>Logout</button></li>
                                 </ul>
                             </div> :
 

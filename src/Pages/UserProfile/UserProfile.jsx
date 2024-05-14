@@ -5,23 +5,24 @@ const UserProfile = () => {
     const {user} = useContext(AuthContext)    
     const [jobs, setJobs] = useState([])
     const [appliedJobs, setAppliedJobs] = useState([])
-   
+
+    const jobUrl = `http://localhost:5000/all-jobs/${user?.email}`
     useEffect(() => {
-        fetch(`http://localhost:5000/all-jobs/${user?.email}`)
+        fetch(jobUrl, {credentials: "include"})
             .then(res => res.json())
             .then(data => {
                 setJobs(data)
             })
-    }, [user])
+    }, [user, jobUrl])
 
-    const url = `http://localhost:5000/applied-jobs/${user?.email}`
+    const appliedJobUrl = `http://localhost:5000/applied-jobs/${user?.email}`
     useEffect(() => {
-        fetch(url)
+        fetch(appliedJobUrl, {credentials: "include"})
             .then(res => res.json())
             .then(data => {
                 setAppliedJobs(data)
             })
-    }, [url])
+    }, [appliedJobUrl])
 
     return (
         <div className="max-w-7xl mx-auto">

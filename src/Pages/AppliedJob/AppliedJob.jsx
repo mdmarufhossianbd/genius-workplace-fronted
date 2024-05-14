@@ -8,15 +8,16 @@ const AppliedJob = () => {
     const { user } = useContext(AuthContext);
     const [myAppliedJobs, setMyAppliedJobs] = useState()
     const [filterCategory, setFilterCategory] = useState([])
+    const url = (`${import.meta.env.VITE_API_URL}/applied-jobs/${user?.email}`)
     useEffect(() => {
-        fetch(`${import.meta.env.VITE_API_URL}/applied-jobs/${user?.email}`)
+        fetch(url, {credentials: "include"})
             .then(res => res.json())
             .then(data => {
                 setMyAppliedJobs(data)
                 setFilterCategory(data)
             }
             )
-    }, [user])
+    }, [url, user])
     const handleFilter = filter => {
         if (filter === "All") {
             setFilterCategory(myAppliedJobs)
