@@ -30,9 +30,9 @@ const UpdateJob = () => {
                 email: email,
                 name: emplyoerName
             }        
-        }
-        console.log(jobData);
-        fetch(`http://localhost:5000/update-job/${_id}`, {
+        }        
+
+        fetch(`${import.meta.env.VITE_API_URL}/update-job/${_id}`, {
             method: "PUT",
             headers:{
                 'content-type' : 'application/json'

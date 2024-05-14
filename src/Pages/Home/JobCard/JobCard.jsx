@@ -7,7 +7,7 @@ const JobCard = ({ job }) => {
     const { _id, jobBanner, jobTitle, deadline } = job;
 
     return (
-        <motion.div whileHover={{ scale: 1.07 }} whileTap={{ scale: 0.5 }} className='p-4 border rounded-md bg-[#05a6584b] box'>           
+        <motion.div whileHover={{ scale: 1.07 }} whileTap={{ scale: 0.9 }} className='p-4 border rounded-md bg-[#05a6584b] box'>           
             <img className='rounded' src={jobBanner} />
             <h2 className='mt-2 font-semibold'>{jobTitle}</h2>
             <div className='flex justify-between py-2 items-center box'>

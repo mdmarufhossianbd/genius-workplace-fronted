@@ -5,10 +5,16 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const JobDetails = () => {
-    const { user } = useContext(AuthContext)
+    const { user, loading } = useContext(AuthContext)
     const job = useLoaderData()
     const navigate = useNavigate()
-    console.log(job);
+
+    if (loading){
+        return <div className="text-center py-[20%]">
+        <span className=" loading loading-dots loading-lg"></span>
+    </div>
+    }
+    
     const { _id, jobBanner, jobTitle, jobCategory, minSalary, maxSalary, deadline, jobDescription, applied_count, emplyoer, publishDate } = job;
 
     const handleApply = e => {
@@ -17,12 +23,12 @@ const JobDetails = () => {
         const applicantEmail = form.applicant_email.value;
         const applicantName = form.applicant_name.value;
         const applicantResume = form.applicant_resume.value;
-        const jobId = _id       
+        const jobId = _id
         const applyData = {
             jobId, applicantEmail, applicantName, applicantResume, jobTitle, jobCategory, minSalary, maxSalary, deadline, publishDate
         }
         const today = new Date();
-        const expriedDate = new Date(deadline);        
+        const expriedDate = new Date(deadline);
 
         if (today > expriedDate) {
             toast.error("This job apply date is expried.")
@@ -32,7 +38,6 @@ const JobDetails = () => {
             toast.error("You can not apply this job because you owner of this job.")
             return
         }
-
 
         fetch(`${import.meta.env.VITE_API_URL}/applies`, {
             method: "POST",

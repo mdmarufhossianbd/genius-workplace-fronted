@@ -16,10 +16,10 @@ const AllJobs = () => {
 
     const handleSearch = e => {
         e.preventDefault();
-        const search = e.target.search.value;        
+        const search = e.target.search.value;           
         setSearchJob(search)
-    }
-    console.log(searchJob);
+        
+    }    
 
     return (
         <div className="h-full max-w-7xl lg:mx-auto mx-4 md:my-20 my-10">
@@ -37,7 +37,7 @@ const AllJobs = () => {
                         <div className="w-full md:w-80 flex gap-4">
                             <form onSubmit={handleSearch}>
                                 <input className="border p-2 rounded" type="text" name="search" placeholder="search here" id="" />
-                                <input className="px-4 py-2 bg-[#05A659] text-white font-semibold rounded" type="submit" value="Search" />
+                                <input className="px-4 py-2 bg-[#05A659] text-white font-semibold rounded hover:cursor-pointer" type="submit" value="Search" />
                             </form>
                         </div>
                     </div>
