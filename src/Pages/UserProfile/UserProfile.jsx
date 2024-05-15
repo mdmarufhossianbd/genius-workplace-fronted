@@ -1,10 +1,11 @@
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../Provider/AuthProvider";
+import { useEffect, useState } from "react";
+import PageTitle from "../../Components/PageTitle/PageTitle";
+import useAuth from "../../Hooks/useAuth";
 
 const UserProfile = () => {
-    const {user} = useContext(AuthContext)    
-    const [jobs, setJobs] = useState([])
-    const [appliedJobs, setAppliedJobs] = useState([])
+    const {user} = useAuth() ;
+    const [jobs, setJobs] = useState([]);
+    const [appliedJobs, setAppliedJobs] = useState([]);
 
     const jobUrl = `http://localhost:5000/all-jobs/${user?.email}`
     useEffect(() => {
@@ -26,6 +27,7 @@ const UserProfile = () => {
 
     return (
         <div className="max-w-7xl mx-auto">
+            <PageTitle title='User Profile'></PageTitle>
             <div className="flex justify-center items-center h-[200px] my-10 rounded-md bg-[#05a6584b]">
                 <h2 className="md:text-5xl text-4xl font-semibold">Profile</h2>
             </div>

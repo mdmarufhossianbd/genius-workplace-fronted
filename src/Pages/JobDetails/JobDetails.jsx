@@ -1,6 +1,10 @@
+import html2canvas from "html2canvas-pro";
+import jsPDF from 'jsPDF';
+import { useState } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import toast from "react-hot-toast";
 import { useLoaderData, useNavigate } from "react-router-dom";
+import PageTitle from "../../Components/PageTitle/PageTitle";
 import useAuth from "../../Hooks/useAuth";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
@@ -9,6 +13,22 @@ const JobDetails = () => {
     const {user, loading} = useAuth();
     const job = useLoaderData()
     const navigate = useNavigate()
+    const [loader, setloader] = useState(false)
+
+    const downloadPDF = () => {
+        const capture = document.querySelector('.job')
+        setloader(true);
+        html2canvas(capture).then((canvas)=>{
+            const imgData = canvas.toDataURL('img/png')
+            const doc = new jsPDF('p', 'mm', 'a4');
+            const componentWidth = doc.internal.pageSize.getWidth();
+            const componentHeight = doc.internal.pageSize.getHeight();
+            doc.addImage(imgData, 'PNG', 0, 0, componentWidth, componentHeight);
+            setloader(false)
+            doc.save('job-details.pdf')
+        })
+    }
+      
 
     if (loading){
         return <div className="text-center py-[20%]">
@@ -52,7 +72,8 @@ const JobDetails = () => {
     }
 
     return (
-        <div>
+        <div className="job">
+            <PageTitle title={jobTitle}></PageTitle>
             <h2 className="text-center text-4xl font-bold md:mt-20 mt-10">Job Details</h2>
             <div className="max-w-7xl lg:mx-auto md:flex gap-5 border-2 px-4 py-8 my-10 rounded md:mx-5 mx-3">
                 <div className="md:w-[70%]">
@@ -95,7 +116,11 @@ const JobDetails = () => {
                                 </form>
                             </div>
                         </dialog>
+                        
                     </div>
+                    <button className="text-xl font-semibold px-4 py-2 rounded bg-[#05A659] text-white my-4" onClick={downloadPDF} disabled={!loader === false} >
+                            {loader ?( <span>Downloading</span>) : (<span>Download it</span>)}
+                        </button>
                 </div>
             </div>
         </div>

@@ -2,7 +2,6 @@ import {
   createBrowserRouter,
 } from "react-router-dom";
 import Root from "../Layout/Root";
-import About from "../Pages/About/About";
 import AddJob from "../Pages/AddJob/AddJob";
 import AllJobs from "../Pages/AllJobs/AllJobs";
 import AppliedJob from "../Pages/AppliedJob/AppliedJob";
@@ -84,10 +83,6 @@ const router = createBrowserRouter([
         {
           path: '/blog/what-is-node-js',
           element: <NodeJs></NodeJs>
-        },
-        {
-          path : '/about',
-          element: <About></About>
         }
     ]
   },

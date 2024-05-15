@@ -1,14 +1,19 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import toast, { Toaster } from "react-hot-toast";
-import { AuthContext } from "../../Provider/AuthProvider";
+import { useNavigate } from "react-router-dom";
+import PageTitle from "../../Components/PageTitle/PageTitle";
+import useAuth from "../../Hooks/useAuth";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const AddJob = () => {
-    const {user}  = useContext(AuthContext);
+    const {user}  = useAuth();
+    const axiosSecure = useAxiosSecure();
+    const navigate = useNavigate()
     const [startDate, setStartDate] = useState(new Date());
     
-    const handleAddJob = e => {
+    const handleAddJob = async e => {
         e.preventDefault();
         const form = e.target;
         const jobBanner = form.job_banner.value;
@@ -28,24 +33,22 @@ const AddJob = () => {
             },
             applied_count: 0
         }
-        console.log(jobData);
-        fetch('http://localhost:5000/add-job', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(jobData)
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data) {
-                    toast.success("Your job added successfully")
-                }
-            })
+
+        try{
+            const { data } = await axiosSecure.post('/add-job', jobData)            
+            toast.success("your applicaiton successfully added.")
+            navigate('/my-jobs')
+            form.reset()
+        }
+        catch (err) {
+            toast.error(err.response.data)
+            e.target.reset()
+          }
     }
 
     return (
        <div className="bg-gradient-to-r from-[#7c2ae862] to-[#1b304452]">
+        <PageTitle title='Add Job || Genius WorkPlace'></PageTitle>
          <div className="max-w-7xl mx-auto flex flex-col items-center pb-20">
             <h2 className="pt-20 pb-10 text-2xl font-semibold">Add New Job</h2>
             <form onSubmit={handleAddJob} className="md:w-[80%] flex flex-col gap-4">

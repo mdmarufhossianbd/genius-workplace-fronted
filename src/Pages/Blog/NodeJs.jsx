@@ -1,8 +1,11 @@
+import PageTitle from '../../Components/PageTitle/PageTitle';
 import nodeJsImg from '../../assets/images/blog/nodejs.png';
 const NodeJs = () => {
     return (
-        <div className="max-w-7xl mx-auto mb-10">
+        <div className="max-w-7xl mx-auto my-10">
+            <PageTitle title='What is Node JS'></PageTitle>
             <img src={nodeJsImg} />
+            <h2 className='text-3xl font-semibold my-5'>What is Node JS</h2>
             <p className='my-2 text-justify'>
                 Node.js is a powerful, open-source, server-side JavaScript runtime environment built on Chrome's V8 JavaScript engine. It allows developers to run JavaScript code outside of a web browser, enabling the development of fast, scalable, and lightweight network applications. Node.js was created by Ryan Dahl in 2009 and has since gained immense popularity within the developer community due to its efficiency and versatility.
 

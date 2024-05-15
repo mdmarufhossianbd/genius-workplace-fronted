@@ -1,8 +1,11 @@
+import PageTitle from '../../Components/PageTitle/PageTitle';
 import nextJsWihReactJs from '../../assets/images/blog/next js with express js.jpg';
 const ExpressWithNextJS = () => {
     return (
-        <div className='max-w-7xl mx-auto mb-10'>
-            <img src={nextJsWihReactJs} alt="" />
+        <div className='max-w-7xl mx-auto my-10'>
+            <PageTitle title='What is express JS? What is Nest JS?'></PageTitle>
+            <img src={nextJsWihReactJs} />
+            <h2 className='text-3xl font-semibold my-5'>What is express JS? What is Nest JS?</h2>
             <p className='my-2 text-justify'>
                 In the realm of Node.js, two frameworks stand out for their efficiency, scalability, and flexibility: Express.js and Nest.js. Both serve as powerful tools for building server-side applications and APIs, but they differ in their approaches and philosophies. Let's delve into what makes each framework unique and explore their key features.
                 <br />

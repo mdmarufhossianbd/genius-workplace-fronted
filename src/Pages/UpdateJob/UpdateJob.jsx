@@ -3,6 +3,7 @@ import DatePicker from "react-datepicker";
 import { Toaster } from "react-hot-toast";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import PageTitle from "../../Components/PageTitle/PageTitle";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const UpdateJob = () => {
@@ -69,6 +70,7 @@ const UpdateJob = () => {
 
     return (
         <div className="bg-gradient-to-r from-[#7c2ae862] to-[#1b304452]">
+        <PageTitle title='Update Job || Genius WorkPlace'></PageTitle>
          <div className="max-w-7xl mx-auto flex flex-col items-center pb-20">
             <h2 className="pt-20 pb-10 text-2xl font-semibold">Update Job</h2>
             <form onSubmit={handleUpdateJob} className="md:w-[80%] flex flex-col gap-4">

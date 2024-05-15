@@ -1,11 +1,12 @@
 import { Typography } from "@material-tailwind/react";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../Provider/AuthProvider";
+import PageTitle from "../../Components/PageTitle/PageTitle";
+import useAuth from "../../Hooks/useAuth";
 import AppliedCard from "./AppliedCard";
 
 const AppliedJob = () => {
-    const { user } = useContext(AuthContext);
+    const { user } = useAuth();
     const [myAppliedJobs, setMyAppliedJobs] = useState()
     const [filterCategory, setFilterCategory] = useState([])
     const url = (`${import.meta.env.VITE_API_URL}/applied-jobs/${user?.email}`)
@@ -42,6 +43,7 @@ const AppliedJob = () => {
 
     return (
         <div className="my-10">
+            <PageTitle title='Applied Jobs'></PageTitle>
             <div className="h-full max-w-7xl lg:mx-auto mx-4">
                 <div>
                     <div className="mb-5 flex items-center justify-between gap-8">

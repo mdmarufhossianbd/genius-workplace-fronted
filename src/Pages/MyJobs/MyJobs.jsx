@@ -1,21 +1,21 @@
 import { Card, CardBody, CardHeader, Typography } from "@material-tailwind/react";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Swal from 'sweetalert2';
 
-import { AuthContext } from "../../Provider/AuthProvider";
+import PageTitle from "../../Components/PageTitle/PageTitle";
+import useAuth from "../../Hooks/useAuth";
 import TableBody from "./TableBody";
 
 const MyJobs = () => {
 
-    const { user } = useContext(AuthContext)
-    const [jobs, setJobs] = useState([])
+    const { user } = useAuth();
+    const [jobs, setJobs] = useState([]);
 
     const url = `${import.meta.env.VITE_API_URL}/all-jobs/${user?.email}`
     useEffect(() => {
         fetch(url, {credentials: "include"})
             .then(res => res.json())
             .then(data => {
-                // console.log(data);
                 setJobs(data)
             })
     }, [url])
@@ -53,7 +53,8 @@ const MyJobs = () => {
     }
 
     return (
-        <div>           
+        <div>
+            <PageTitle title='My Jobs || Genius WorkPlace'></PageTitle>           
            <Card className="h-full max-w-7xl mx-auto my-20">
             <CardHeader floated={false} shadow={false} className="rounded-none">
                 <div className="mb-8 flex items-center justify-between gap-8">

@@ -1,9 +1,12 @@
+import PageTitle from '../../Components/PageTitle/PageTitle';
 import JWTAccessTokenImg from '../../assets/images/blog/jwt-structure.png';
 
 const JWTAccessToken = () => {
     return (
-        <div className='max-w-7xl mx-auto mb-10'>
-            <img src={JWTAccessTokenImg} alt="" />
+        <div className='max-w-7xl mx-auto my-10'>
+            <PageTitle title='What is an access token and refresh token? How do they work and where should we store them on the client side?'></PageTitle>
+            <img src={JWTAccessTokenImg} />
+            <h2 className='text-3xl font-semibold my-5'>What is an access token and refresh token? How do they work and where should we store them on the client side?</h2>
             <p className='my-2 text-justify'>
                 In the realm of modern web development and security, access tokens and refresh tokens play a pivotal role in ensuring secure communication between clients and servers. As fundamental components of OAuth 2.0 authentication protocol, understanding their mechanisms, functionalities, and proper handling is crucial for developers building secure applications. Let's delve into what access tokens and refresh tokens are, how they work, and best practices for storing them on the client side.
                <h2 className='text-2xl font-medium my-2'>Understanding Access Tokens and Refresh Tokens</h2>

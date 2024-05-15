@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import { IoEye, IoEyeOff } from "react-icons/io5";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import PageTitle from "../../Components/PageTitle/PageTitle";
 import { AuthContext } from "../../Provider/AuthProvider";
 import bglogin from '../../assets/images/login.jpg';
 const Login = () => {
@@ -54,7 +55,9 @@ const Login = () => {
     return navigate("/")
    }
     return (
+        
         <div className='w-full'>
+            <PageTitle title="Log in || Genius WorkPlace"></PageTitle>
             <img className='w-full h-full object-cover absolute' src={bglogin} />
             <div className='relative xl:w-[30%] lg:w-1/2 md:w-[70%] md:mx-auto mx-4 py-32'>
                 <div className='border bg-[#1b30445b] text-white rounded md:py-10'>

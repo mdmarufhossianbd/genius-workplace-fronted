@@ -26,7 +26,7 @@ const Navber = () => {
         <Link className="text-white font-semibold hover:bg-[#000] hover:px-3 hover:py-2 rounded px-3 py-2" to={'/all-jobs'}>All Jobs</Link>
         <Link className="text-white font-semibold hover:bg-[#000] hover:px-3 hover:py-2 rounded px-3 py-2" to={'/add-job'}>Add Jobs</Link>
         <Link className="text-white font-semibold hover:bg-[#000] hover:px-3 hover:py-2 rounded px-3 py-2" to={'/blog'}>Blog</Link>
-        <Link className="text-white font-semibold hover:bg-[#000] hover:px-3 hover:py-2 rounded px-3 py-2" to={'/about'}>About Us</Link>
+        
     </>
 
     const handleLogout = () => {
@@ -90,8 +90,6 @@ const Navber = () => {
                 <label className="swap swap-rotate ml-10">
                     <input type="checkbox" onChange={handleToggle} checked={theme == "light" ? false : true} className="theme-controller toggle" value="synthwave" />                   
                 </label>
-
-
             </div>
         </div>
     );

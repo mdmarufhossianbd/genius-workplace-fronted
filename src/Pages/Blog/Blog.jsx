@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
+import PageTitle from '../../Components/PageTitle/PageTitle';
 import jwtToken from '../../assets/images/blog/jwt-structure.png';
 import expressWithNextjs from '../../assets/images/blog/next js with express js.jpg';
 import nodejs from '../../assets/images/blog/nodejs.png';
 const Blog = () => {
     return (
         <div className="max-w-7xl mx-auto mb-20">
+            <PageTitle title='Blog || Genius WorkPlace'></PageTitle>
             <div className="flex justify-center items-center h-[200px] my-10 rounded-md bg-[#05a6584b]">
                 <h2 className="md:text-5xl text-4xl font-semibold">Blog</h2>
             </div>

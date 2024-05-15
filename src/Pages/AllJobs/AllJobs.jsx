@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import PageTitle from "../../Components/PageTitle/PageTitle";
 
 const AllJobs = () => {
     const alljobs = useLoaderData()
@@ -23,6 +24,7 @@ const AllJobs = () => {
 
     return (
         <div className="h-full max-w-7xl lg:mx-auto mx-4 md:my-20 my-10">
+            <PageTitle title='All Jobs || Genius WorkPlace'></PageTitle>
             <div>
                 <div className="mb-8 md:flex items-center justify-between gap-8">
                     <div>
