@@ -50,18 +50,17 @@ const AuthProvider = ({ children }) => {
             const userEmail = currentUser?.email || user?.email;
             const loggedUser = {email : userEmail};
             setUser(currentUser);
-            console.log(currentUser);
 
             if(currentUser) { 
                 axios.post(`${import.meta.env.VITE_API_URL}/jwt`, loggedUser, {withCredentials : true})
                 .then(res=>{
-                    console.log('token response', res.data);
+                    res.data
                 })
             }
             else{
                 axios.post(`${import.meta.env.VITE_API_URL}/logout`, loggedUser, {withCredentials: true})
                 .then(res=>{
-                    console.log(res.data);
+                    res.data
                 })
             }
             setLoading(false)
@@ -87,7 +86,7 @@ const AuthProvider = ({ children }) => {
             {children}            
             < Toaster
                 position = "top-center"
-                reverseOrder = { false}
+                reverseOrder = {false}
             />
         </AuthContext.Provider>
     );

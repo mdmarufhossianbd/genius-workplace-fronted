@@ -18,7 +18,6 @@ const Login = () => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-        console.log("input data", email, password);
         loginUser(email, password)
             .then(result => {
                 if (result.user) {
@@ -27,8 +26,6 @@ const Login = () => {
                 }
             })
             .catch(error => {
-                error.message
-                console.log(error.message);
                 if (error.message) {
                     toast.error("Please check your email or password.")
                 }
