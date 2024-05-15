@@ -7,7 +7,7 @@ const UserProfile = () => {
     const [jobs, setJobs] = useState([]);
     const [appliedJobs, setAppliedJobs] = useState([]);
 
-    const jobUrl = `http://localhost:5000/all-jobs/${user?.email}`
+    const jobUrl = `${import.meta.env.VITE_API_URL}/all-jobs/${user?.email}`
     useEffect(() => {
         fetch(jobUrl, {credentials: "include"})
             .then(res => res.json())
@@ -16,7 +16,7 @@ const UserProfile = () => {
             })
     }, [user, jobUrl])
 
-    const appliedJobUrl = `http://localhost:5000/applied-jobs/${user?.email}`
+    const appliedJobUrl = `${import.meta.env.VITE_API_URL}/applied-jobs/${user?.email}`
     useEffect(() => {
         fetch(appliedJobUrl, {credentials: "include"})
             .then(res => res.json())
