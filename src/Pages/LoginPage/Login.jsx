@@ -2,14 +2,16 @@ import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import { IoEye, IoEyeOff } from "react-icons/io5";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import bglogin from '../../assets/images/login.jpg';
 const Login = () => {
-    const { loginUser, auth } = useContext(AuthContext);
+    const { loginUser, auth, user } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider;
     const [showPassword, setShowPassword] = useState(false);
+    const location = useLocation();
     const navigate = useNavigate();
+    
 
     const handleLogin = e => {
         e.preventDefault();
@@ -48,7 +50,9 @@ const Login = () => {
                 }
             })
     }
-   
+   if(user){
+    return navigate("/")
+   }
     return (
         <div className='w-full'>
             <img className='w-full h-full object-cover absolute' src={bglogin} />
@@ -59,7 +63,7 @@ const Login = () => {
                     <div className="p-5">
                         <form onSubmit={handleLogin} className="flex flex-col w-full px-4 mx-auto">
                             <label className="text-lg font-medium py-2">Email</label>
-                            <input className="bg-[#05a6584b] rounded-full text-xl py-2 pl-4 text-white placeholder:text-white focus:outline-none  focus:ring-0" type="email" placeholder="Enter your valid email" name="email" required />
+                            <input className="bg-[#05a6584b] rounded-full text-xl py-2 pl-4 text-white placeholder:text-white focus:outline-none focus:ring-0" type="email" placeholder="Enter your valid email" name="email" required />
 
                             <label className="text-lg font-medium py-2">Password</label>
                             <div className="relative">

@@ -1,11 +1,12 @@
-import { useContext } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import toast from "react-hot-toast";
 import { useLoaderData, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../Provider/AuthProvider";
+import useAuth from "../../Hooks/useAuth";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const JobDetails = () => {
-    const { user, loading } = useContext(AuthContext)
+    const axiosSecure = useAxiosSecure()
+    const {user, loading} = useAuth();
     const job = useLoaderData()
     const navigate = useNavigate()
 
@@ -17,7 +18,7 @@ const JobDetails = () => {
     
     const { _id, jobBanner, jobTitle, jobCategory, minSalary, maxSalary, deadline, jobDescription, applied_count, emplyoer, publishDate } = job;
 
-    const handleApply = e => {
+    const handleApply = async e => {
         e.preventDefault();
         const form = e.target;
         const applicantEmail = form.applicant_email.value;
@@ -39,20 +40,15 @@ const JobDetails = () => {
             return
         }
 
-        fetch(`${import.meta.env.VITE_API_URL}/applies`, {
-            method: "POST",
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(applyData)
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.acknowledged == true) {
-                    toast.success("your applicaiton successfully added.")
-                    navigate('/my-applied-jobs')
-                }
-            })
+        try{
+            const { data } = await axiosSecure.post('/applies', applyData)
+            toast.success("your applicaiton successfully added.")
+            navigate('/my-applied-jobs')
+        }
+        catch (err) {
+            toast.error(err.response.data)
+            e.target.reset()
+          }        
     }
 
     return (

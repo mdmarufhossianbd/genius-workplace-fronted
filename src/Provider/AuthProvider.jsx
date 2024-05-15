@@ -27,11 +27,9 @@ const AuthProvider = ({ children }) => {
             photoURL: photo
         })
             .then(() => {
-                toast.success('Your account create successfully')                    
-                console.log('account create successfully');
+                toast.success('Your account create successfully')
             })
-            .catch((error) => {
-                console.log(error.message);
+            .catch(() => {               
             })
     }
     // user login
