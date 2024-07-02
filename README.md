@@ -1,7 +1,7 @@
 # Genius Workplace Frontend
 Welcome to the frontend of Genius Workplace, an innovative platform designed to transform the way we work and collaborate. This repository contains the frontend code built with React, providing an intuitive and responsive user interface for the application.
 ## Backend Repo
-➡️➡️➡️ [Genius WorkPlace](https://genius-workplace.web.app/)
+➡️➡️➡️ [Genius WorkPlace Backend Repo](https://github.com/mdmarufhossianbd/genius-workplace-backend.git)
 # Preview 
 Live link : [Genius WorkPlace](https://genius-workplace.web.app/)
 
