@@ -5,7 +5,8 @@ Welcome to the frontend of Genius Workplace, an innovative platform designed to 
 # Preview 
 Live link : [Genius WorkPlace](https://genius-workplace.web.app/)
 
-# How can you start it
+# How can you run it in you local machine
+Must be have to installed nodejs in your machine before run this project.
 - step 1
   ```
   git clone https://github.com/mdmarufhossianbd/genius-workplace-fronted.git
