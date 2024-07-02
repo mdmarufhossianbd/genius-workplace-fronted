@@ -1,7 +1,33 @@
 # Genius Workplace Frontend
+Welcome to the frontend of Genius Workplace, an innovative platform designed to transform the way we work and collaborate. This repository contains the frontend code built with React, providing an intuitive and responsive user interface for the application.
+## Backend Repo
+➡️➡️➡️ [Genius WorkPlace](https://genius-workplace.web.app/)
+# Preview 
 Live link : [Genius WorkPlace](https://genius-workplace.web.app/)
 
-Welcome to the frontend of Genius Workplace, an innovative platform designed to transform the way we work and collaborate. This repository contains the frontend code built with React, providing an intuitive and responsive user interface for the application.
+# How can you start it
+- step 1
+  ```
+  git clone https://github.com/mdmarufhossianbd/genius-workplace-fronted.git
+  ```
+- step 2
+  ```
+  npm install
+  ```
+- step 3
+  ```
+  npm run dev
+  ```
+- step 4 [ note : setup .env.local file. In the root folder of this project create a .env.local file.]
+  ```
+  VITE_APIKEY=FIREBASE_APIKEY
+  VITE_AUTHDOMAIN=FIREBASE_AUTHDOMAIN
+  VITE_PROJECTID=FIREBASE_PROJECTID
+  VITE_STORAGEBUCKET=FIREBASE_STORAGEBUCKET
+  VITE_MESSAGINGSENDERID=FIREBASE_MESSAGINGSENDERID
+  VITE_APPID=FIREBASE_APPID
+  VITE_IMAGE_HOSTING_KEY=FIREBASE_IMAGE_HOSTING_KEY
+  ```
 
 # Technologies Used
 - tanstack/react-query
@@ -24,9 +50,6 @@ Welcome to the frontend of Genius Workplace, an innovative platform designed to 
 - Job Details PDF Download: Users can download the details of a job listing as a PDF
 - Real Time job apply.
 - user don't apply duplicate job apply
-
-# Contributing
-Contributions are welcome! Please fork this repository and submit a pull request for any enhancements or bug fixes. Before making any changes, please open an issue to discuss what you would like to contribute.
 
 # License
 This project is licensed under the MIT License. See the LICENSE file for details.
